@@ -1,0 +1,45 @@
+def calculate_rent(base_rent, number_of_months, utilities=0, maintenance=0):
+    """
+    Calculate the total rent including base rent, utilities, and maintenance costs.
+
+    :param base_rent: Monthly rent amount
+    :param number_of_months: Duration of the rent in months
+    :param utilities: Additional utilities cost per month (default is 0)
+    :param maintenance: Additional maintenance cost per month (default is 0)
+    :return: Total rent cost
+    """
+    total_base_rent = base_rent * number_of_months
+    total_utilities = utilities * number_of_months
+    total_maintenance = maintenance * number_of_months
+
+    total_rent = total_base_rent + total_utilities + total_maintenance
+    return total_rent
+
+
+def main():
+    print("Rent Calculator")
+
+    # Input base rent amount
+    try:
+        base_rent = float(input("Enter the base rent amount per month ($): "))
+        number_of_months = int(input("Enter the number of months: "))
+        utilities = float(input("Enter the utilities cost per month ($), or 0 if none: "))
+        maintenance = float(input("Enter the maintenance cost per month ($), or 0 if none: "))
+
+        # Calculate total rent
+        total_rent = calculate_rent(base_rent, number_of_months, utilities, maintenance)
+
+        # Display results
+        print("\nRent Summary:")
+        print(f"Base Rent: ${base_rent:.2f} per month")
+        print(f"Number of Months: {number_of_months}")
+        print(f"Utilities: ${utilities:.2f} per month")
+        print(f"Maintenance: ${maintenance:.2f} per month")
+        print(f"Total Rent: ${total_rent:.2f}")
+
+    except ValueError:
+        print("Invalid input. Please enter numerical values.")
+
+
+if __name__ == "__main__":
+    main()
